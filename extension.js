@@ -7,23 +7,23 @@ const Util = imports.misc.util;
 let msg, button;
 var pulse_on;
 
-function _hideHello() {
-    Main.uiGroup.remove_actor(text);
+function _hideMsg() {
+    Main.uiGroup.remove_actor(msg);
     msg = null;
 }
 
-function _showHello() {
+function _togglePulse() {
     if (!msg) {
         msg = new St.Label({ style_class: 'msg-label', text: 'bla' });
         Main.uiGroup.add_actor(msg);
     }
 
     if (pulse_on == true) {
-        Util.spawn(['sh', '-c', "echo suspend true | pacmd"]);
+        Util.spawn(['pacmd', 'suspend', 'true']);
         pulse_on = false;
         msg.text = "pulse is OFF";
     } else {
-        Util.spawn(['sh', '-c', "echo suspend false | pacmd"]);
+        Util.spawn(['pacmd', 'suspend', 'false']);
         pulse_on = true;
         msg.text = "pulse is ON";
     }
@@ -39,7 +39,7 @@ function _showHello() {
                      { opacity: 0,
                        time: 2,
                        transition: 'easeOutQuad',
-                       onComplete: _hideHello });
+                       onComplete: _hideMsg });
 }
 
 function init() {
@@ -55,7 +55,7 @@ function init() {
                              style_class: 'system-status-icon' });
 
     button.set_child(icon);
-    button.connect('button-press-event', _showHello);
+    button.connect('button-press-event', _togglePulse);
 }
 
 function enable() {
