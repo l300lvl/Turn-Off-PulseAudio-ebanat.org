@@ -1,2 +1,2 @@
 bundle:
-	zip ~/1.zip *
+	zip ext.zip *
