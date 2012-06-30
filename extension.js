@@ -50,7 +50,7 @@ function init() {
                           x_fill: true,
                           y_fill: false,
                           track_hover: true });
-    let icon = new St.Icon({ icon_name: 'system-run',
+    let icon = new St.Icon({ icon_name: 'audio-card',
                              icon_type: St.IconType.SYMBOLIC,
                              style_class: 'system-status-icon' });
 
