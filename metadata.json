@@ -1,1 +1,1 @@
-{"shell-version": ["3.4.1"], "uuid": "Turn-Off-PulseAudio@ebanat.org", "name": "Turn Off PulseAudio", "description": "bla"}
+{"shell-version": ["3.4.1"], "uuid": "Turn-Off-PulseAudio@ebanat.org", "name": "Turn Off PulseAudio", "description": "Adds ability to suspend&restore PulseAudio server, e.g. to launch JACK server, or something else needing exclusive soundcard access", "url": "https://github.com/an146/Turn-Off-PulseAudio-ebanat.org"}
